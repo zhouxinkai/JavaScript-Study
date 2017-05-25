@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var setValue,getValue;
+			(function(){
+				var n=0;
+				getValue=function(){
+					return n;
+				};
+				setValue=function(x){
+					n=x;
+				};
+			})();
+//			alert(n);
+			alert(getValue());
+			setValue(567);
+			alert(getValue());
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

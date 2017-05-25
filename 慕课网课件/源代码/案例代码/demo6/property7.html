@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+	var obj={};
+	obj.x=1;
+	/*
+	 Object.defineProperty(obj,'x',{
+	 	value:1,
+	 	writable:true,
+	 	enumerable:true,
+	 	configurable:true
+	 });
+	 */
+	Object.defineProperty(obj,'y',{value:2});
+	/*
+	  Object.defineProperty(obj,'x',{
+	 	value:2,
+	 	writable:false,
+	 	enumerable:false,
+	 	configurable:false
+	 });
+	 */
+	var obj1={
+		__proto__:null,//没有继承而来的属性
+		value:1
+	};
+	Object.defineProperty(obj1,'x',{
+		value:1,
+		writable:false,
+		enumerable:false,
+		configurable:true
+	});
+	obj1.x=2;
+	console.log(obj1.x);
+	Object.defineProperty(obj1,'x',{
+		value:3,
+		writable:true
+	});
+	console.log(obj1.x);
+	obj1.x=5;
+	console.log(obj1.x);
+	//如果属性不可配置，但是可以把writable的true变成false，但不能将false变为true
+	
+	Object.defineProperty(obj1,'y',{
+		value:1,
+		writable:true,
+		enumerable:false,
+		configurable:false
+	});
+	obj1.y=6;
+	console.log(obj1.y);
+	Object.defineProperty(obj1,'y',{
+		writable:false
+	});
+	obj1.y=10;
+	console.log(obj1.y);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>
+	</body>
+</html>

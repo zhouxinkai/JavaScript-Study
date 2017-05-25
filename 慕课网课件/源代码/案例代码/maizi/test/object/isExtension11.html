@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+
+// 新对象默认是可扩展的.
+var empty = {};
+alert(Object.isExtensible(empty) === true);
+
+// ...可以变的不可扩展.
+Object.preventExtensions(empty);
+alert(Object.isExtensible(empty) === false);
+
+// 密封对象是不可扩展的.
+var sealed = Object.seal({});
+alert(Object.isExtensible(sealed) === false);
+
+// 冻结对象也是不可扩展.
+var frozen = Object.freeze({});
+alert(Object.isExtensible(frozen) === false);
+		</script>
+	</body>
+</html>

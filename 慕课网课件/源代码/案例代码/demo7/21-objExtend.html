@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			var o={};
+			function extendCopy(p){
+				var c={};
+				for(var i in p){
+					c[i]=p[i];
+				}
+				c.uber=p;
+				return c;
+			}
+			
+			var Shape={
+				name:'shape',
+				toString: function(){
+					return this.name;
+				}
+			};
+			var TwoDShape=extendCopy(Shape);
+			TwoDShape.name='2D Shape';
+			TwoDShape.toString=function(){
+				return this.uber.toString()+"--"+this.name;
+			}
+			
+			var Triangle=extendCopy(TwoDShape);
+			Triangle.name='triangle';
+			Triangle.getArea=function(){
+				return this.side*this.height/2;
+			}
+			Triangle.side=5;
+			Triangle.height=10;
+			console.log(Triangle.getArea());
+			//深度拷贝
+			function deepCopy(p,c){
+				var c=c||{};
+				for(var i in p){
+					if(typeof p[i]==='object'){
+						c[i]=(p[i].constructor===Array)?[]:{};
+						deepCopy(p[i],c[i]);
+					}else{
+						c[i]=p[i];
+					}
+				}
+				return c;
+			}
+			
+			var parent={
+				numbers:[1,2,3]	
+			};
+			var mydeep=deepCopy(parent);
+			var myshallow=extendCopy(parent);
+			mydeep.numbers.push(4,5,6);
+			console.log(mydeep.numbers);
+			console.log(parent.numbers);
+			
+			myshallow.numbers.push(7,8,9);
+			console.log(myshallow.numbers);
+			console.log(parent.numbers);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function foreach(a,f,t){
+				try{
+					a.forEach(f,t);
+				}catch(e){
+					if(e===foreach.break){
+						return ;
+					}else{
+						throw e;
+					}
+				}
+			}
+			foreach.break=new Error('stop Iteration');
+			var arr=['a','b','c','d'];
+			alert(foreach(arr,foreach.break));
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

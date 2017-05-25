@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	function foo(){};
+	foo.prototype.z=3;
+	var obj=new foo();
+	obj.x=1;
+	obj.y=2;
+	//通过in检测对象是否有某个属性
+	// alert('z' in obj);
+	// alert(obj.hasOwnProperty('z'));
+	obj.z=5;
+	// alert(obj.hasOwnProperty('z'));
+	// alert(foo.prototype.z);
+	// alert(obj.z);
+	obj.z=undefined;
+	// alert(obj.z);
+	delete obj.z;
+	// alert(obj.z);
+	delete foo.prototype.z;
+	// alert(obj.z);
+	//第一个参数是对象的原型，obj1没有x这个属性
+	var obj1=Object.create({x:1});
+	// alert(obj1.x);
+	// alert(obj1.hasOwnProperty('x'));
+
+	//属性访问错误
+	//如果属性不存在，则返回undefined
+	// alert(obj1.notExistsProperty);
+	//如果对象不存在，访问这个不存在对象的属性就会报错误
+	// alert(obj2.test);
+	//null和undefined都没有属性
+	var obj2={
+		test:{x:1,y:2}
+	};
+	obj3=obj2.test;
+	delete obj2.test;
+	alert(obj3.y);
+
+</script>
+</body>
+</html>

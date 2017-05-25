@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+var obj={};
+//obj.x=1;
+//obj.y=2;
+//obj.x=123;
+//obj.y=4566;
+//console.log(obj.x+'\n'+obj.y);
+//for(var p in obj){
+//	console.log(p);
+//}
+//console.log(Object.keys(obj));
+//console.log(Object.getOwnPropertyNames(obj));
+Object.defineProperty(obj,'x',{
+	value:12
+});
+//console.log(obj.x);
+//obj.x=456;
+//console.log(obj.x);
+//for(p in obj){
+//	console.log('对象中得属性：'+p+'\n');
+//}
+//console.log(Object.keys(obj));
+//console.log(Object.getOwnPropertyNames(obj));
+Object.defineProperty(obj,'y',{
+	value:56,
+	writable:true,//代表是否可写
+	enumerable:true,//是否可枚举
+	configurable:false//是否可配置
+});
+//console.log(obj.y);
+//obj.y=777;
+//console.log(obj.y);
+//for(p in obj){
+//	console.log(p);
+//}
+console.log(Object.keys(obj));
+//console.log(Object.getOwnPropertyNames(obj));
+Object.defineProperty(obj,'z',{
+	value:'this is a test',
+	writable:true,
+	enumerable:true,
+	configurable:true
+});
+console.log(obj.z);
+obj.z='hello';
+console.log(obj.z);
+delete obj.z;
+console.log(obj.z);
+Object.defineProperty(obj,'k',{
+	value:1,
+	writable:false,
+	enumerable:false,
+	configurable:true
+});
+console.log(obj.k);
+obj.k=3;
+console.log(obj.k);
+Object.defineProperty(obj,'k',{
+	writable:true,
+	enumerable:true
+});
+
+obj.k=5;
+console.log(obj.k);
+console.log(obj.propertyIsEnumerable('k'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+	</body>
+</html>

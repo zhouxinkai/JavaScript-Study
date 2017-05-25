@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+//	var arr = ["a", "b", "c"];
+//alert(Object.getOwnPropertyNames(arr).sort()); // 输出"0,1,2,length"
+//
+//// 类数组对象
+//var obj = { 0: "a", 1: "b", 2: "c"};
+//alert(Object.getOwnPropertyNames(obj).sort()); // 输出"0,1,2"
+//
+//// 使用Array.forEach输出属性名和属性值
+//Object.getOwnPropertyNames(obj).forEach(function(val, idx, array) {
+//alert(val + " -> " + obj[val]);
+//});
+//// 输出
+//// 0 -> a
+//// 1 -> b
+//// 2 -> c
+//
+////不可枚举属性
+//var my_obj = Object.create({}, { getFoo: { value: function() { return this.foo; }, enumerable: false } });
+//my_obj.foo = 1;
+//
+//alert(Object.getOwnPropertyNames(my_obj).sort()); // 输出"foo, getFoo"
+
+//下面的例子演示了该方法不会获取到原型链上的属性：
+
+function ParentClass() {}
+ParentClass.prototype.inheritedMethod = function () {};
+
+function ChildClass() {
+    this.prop = 5;
+    this.method = function () {};
+}
+
+ChildClass.prototype = new ParentClass;
+
+ChildClass.prototype.prototypeMethod = function () {};
+
+alert(Object.getOwnPropertyNames(new ChildClass())); //弹出["prop", "method"]))
+
+</script>
+	</body>
+</html>

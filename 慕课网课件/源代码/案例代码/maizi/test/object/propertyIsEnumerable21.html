@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+//propertyIsEnumerable方法的基本用法
+var o={};
+var a=[];
+o.prop='我是可枚举的属性';
+a[0]='我也是可枚举的属性';
+//alert(o.propertyIsEnumerable('prop'));
+//alert(a.propertyIsEnumerable(0));
+
+//用户自定义对象和引擎内置对象
+
+var a = ['我是个可枚举属性'];
+
+a.propertyIsEnumerable(0);          // 返回true
+a.propertyIsEnumerable('length');   // 返回false
+
+Math.propertyIsEnumerable('random');   // 返回false
+this.propertyIsEnumerable('Math');     // 返回false
+
+//自身属性和继承属性
+
+var a = [];
+a.propertyIsEnumerable('constructor');         // 返回false,constructor不是自身属性
+
+function firstConstructor() {
+  this.property = 'is not enumerable';
+}
+
+firstConstructor.prototype.firstMethod = function () {};
+
+function secondConstructor() {
+  this.method = function method() { return 'is enumerable'; };
+}
+
+secondConstructor.prototype = new firstConstructor;
+secondConstructor.prototype.constructor = secondConstructor;
+
+var o = new secondConstructor();
+o.arbitraryProperty = 'is enumerable';
+
+o.propertyIsEnumerable('arbitraryProperty');   // 返回true
+o.propertyIsEnumerable('method');              // 返回true
+o.propertyIsEnumerable('property');            // 返回false,property是继承属性
+
+o.property = 'is enumerable';
+
+o.propertyIsEnumerable('property');            // 返回true
+
+// 继承属性都返回false
+o.propertyIsEnumerable('prototype'); // 返回false 
+o.propertyIsEnumerable('constructor'); // 返回false
+o.propertyIsEnumerable('firstMethod'); // 返回false
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+	</body>
+</html>

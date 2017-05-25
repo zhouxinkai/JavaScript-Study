@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<script type="text/javascript">
+		/*
+		 if(exp){
+		 	exp为true的代码段;
+		 }else{
+		 	exp为false的代码段;
+		 }
+		 */
+		//其它类型转换成布尔类型假的有
+		var a;//undefined->false
+		//typeof得到变量的类型
+//		alert(typeof a);
+		 	a=null;//null->false
+		 	//0 0.0 NaN->false
+		 	a=0;
+		 	a=0.0;
+		 	a=0/0; //NaN
+		 	a=NaN;
+//		 	alert(a);
+			a='';//空字符串->false
+			a='0';
+			a=' ';
+//			alert(typeof a);
+//		if(a){
+//			alert('真');
+//		}else{
+//			alert('假');
+//		}
+//其它类型转换成数值型
+			var b=undefined;//undefined->NaN
+			b=null;//null->0
+			b=true;//true->1
+			b=false;//false->0
+//			alert(1+b);
+			var c='12';//'12'->12
+			c='3king';//'3king'->NaN
+			c='true';
+//			alert(2*c);
+			c='33';
+//			alert(typeof c);
+//			c=c*1;
+//			alert(typeof c);
+
+			
+			
+	</script>
+	</head>
+	<body>
+		<h1>隐式转换的例子</h1>
+		<script type="text/javascript">
+			//其它类型转换成字符串型
+			document.write(undefined);//'undefined'
+			document.write('<br/>');
+			document.write(null);//'null'
+			document.write('<br/>');
+			document.write(NaN);//'NaN'
+			document.write('<br/>');
+			document.write(123);//'123'
+			document.write('<br/>');
+			document.write(true);//'true'
+			document.write('<br/>');
+			document.write(false);//'false'
+			document.write('<br/>');
+			alert(1+"1");//拼接字符串
+			alert('2'+12);//拼接字符串
+		</script>
+	</body>
+</html>
+
+

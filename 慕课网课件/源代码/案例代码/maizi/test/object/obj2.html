@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function Person(name,age,sex){
+				this.name=name;
+				this.age=age;
+				this.sex=sex;
+				this.userInfo=function(){
+					return '用户名：'+this.name+'<br/>性别：'+this.sex+'<br/>年龄：'+age+'<br/>';
+				}
+			}
+//			var person1=new Person('king',12,'男');
+//			var test=person1;
+////			test.age=100;
+////			alert(test.age);
+////			alert(person1.age);
+//			var obj={num1:1};
+//			var func=function(o){o.num1=3};
+//			func(obj);
+//			alert(obj.num1);
+////			alert(person1.name);
+////			alert(person1.userInfo());
+//			document.write(person1.userInfo());
+//			document.write("<hr/>");
+//			var person2=Person('queen',34,'女');
+////			alert(typeof person2);
+////			alert(typeof person2.name);
+//						
+//			alert(window.name);
+//			alert(typeof person1.constructor);
+//			var person3=new person1.constructor('张三',34,'保密');
+//			alert(person3.name);
+//			var obj1={};
+////			alert(obj1.constructor);
+//			alert(typeof obj1.constructor);
+var obj1={name:'king'};
+var obj2={name:'king'};
+//alert(obj1==obj2);
+var obj3=obj1;
+alert(obj1===obj3);
+
+
+		</script>
+	</body>
+</html>

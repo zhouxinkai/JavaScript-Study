@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+		//迭代器中得应用
+			function test(x){
+				var i=0;
+				return function(){
+					return x[i++];
+				};
+			}
+			var next=test(['a','b','c','d']);
+			alert(next());
+			alert(next());
+			alert(next());
+			alert(next());
+			
+		</script>
+	</body>
+</html>

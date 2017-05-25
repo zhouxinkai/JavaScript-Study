@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function objectPlus(o,stuff){
+				function F(){};
+				F.prototype=o;
+				var n=new F();
+				n.uber=o;
+				for(var i in stuff){
+					n[i]=stuff[i];
+				}
+				return n;
+			}
+			
+			var Shape={	
+				name:'shape',
+				toString: function(){
+					return this.name;
+				}
+			};
+			var TwoDShape=objectPlus(Shape,{
+				name:'2D Shape',
+				toString: function(){
+					return this.uber.toString()+'--'+this.name;
+				}
+			});
+			
+			var Triangle=objectPlus(TwoDShape,{
+				name:'triangle',
+				getArea: function(){
+					return this.side*this.height/2;
+				},
+				side:0,
+				hieght:0
+			});
+			
+			var my=objectPlus(Triangle,{
+				side:5,
+				height:10
+			});
+			console.log(my.getArea());
+			console.log(my.toString());
+			var my=objectPlus(Triangle,{
+				name:'this is a test',
+				side:10,
+				height:20
+			});
+			console.log(my.toString());
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

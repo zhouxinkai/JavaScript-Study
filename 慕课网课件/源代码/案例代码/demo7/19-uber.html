@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function extend(Child,Parent){
+				var F=function(){};
+				F.prototype=Parent.prototype;
+				Child.prototype=new F();
+				Child.prototype.constructor=Child;
+				Child.uber=Parent.prototype;
+			}
+			
+			function Shape(){};
+			Shape.prototype.name='Shape';
+			Shape.prototype.toString=function(){
+				var result=[];
+				if(this.constructor.uber){
+					result[result.length]=this.constructor.uber.toString();
+				}
+				result[result.length]=this.name;
+				return result.join(', ');
+			};
+			
+			function TwoDShape(){};
+			extend(TwoDShape,Shape);
+			TwoDShape.prototype.name='2D Shape';
+			
+			function Triangle(side,height){
+				this.side=side;
+				this.height=height;
+			}
+			
+			extend(Triangle,TwoDShape);
+			Triangle.prototype.name='triangle';
+			Triangle.prototype.getArea=function(){
+				return this.side*this.height/2;
+			}
+			
+			var my=new Triangle(5,10);
+			console.log(my.getArea());
+			console.log(my.toString());
+			
+			var td=new TwoDShape();
+			console.log(td.toString());
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

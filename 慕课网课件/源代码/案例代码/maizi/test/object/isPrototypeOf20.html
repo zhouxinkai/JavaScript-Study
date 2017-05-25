@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+function Fee() {
+  // . . .
+}
+
+function Fi() {
+  // . . .
+}
+Fi.prototype = new Fee();
+
+function Fo() {
+  // . . .
+}
+Fo.prototype = new Fi();
+
+function Fum() {
+  // . . .
+}
+Fum.prototype = new Fo();
+var fum = new Fum();
+if(Fi.prototype.isPrototypeOf(fum)){
+	alert('this is a test');
+}
+</script>
+	</body>
+</html>

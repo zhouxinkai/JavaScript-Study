@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	
+	<script>
+		//通过对象字面量创建的对象
+		var obj={};//没有任何属性的对象
+		// alert(typeof obj);
+		var obj1={num1:12,num2:34};//有两个属性
+		var obj2={x:obj1.num1,y:obj1.num2+3};
+		// alert(obj2.y);
+		var obj3={
+			"for":'JavaScript关键字',
+			"king smith":'this is king show time',
+			'test-attr':'特殊字符必须用放到引号之间',
+			person:{
+				username:'king',
+				age:12,
+				addr:'北京'
+			}
+		};
+
+		/*----------------------*/
+		//通过new创建对象
+		var obj4=new Object();//创建一个空对象，和{}一样
+		var arr=new Array();//创建一个空数组，和[]一样
+		var d=new Date();//创建一个表示当前时间的Date对象
+		var r=new RegExp('js')//创建一个可以进行模式匹配的RegExp对象
+		function Test(){
+
+		}
+		var func=new Test();
+		function Test1(num1,num2){
+			this.n1=num1;
+			this.n2=num2;
+		}
+		var func1=new Test1(2,3);
+		alert(func1.n2);
+		// alert(func instanceof Test);
+		// alert(typeof func);
+		// alert(typeof Test);
+		// alert(d.prototype);
+		/*----------------------*/
+		//通过Object.create()创建对象
+		var obj5=Object.create({x:1,y:2});
+		//可以通过传入参数null来创建一个没有原型的新对象，通过这种形式创建的对象不会继承任何东西，甚至不包括基础方法，像toString()
+		var obj6=Object.create(null);//不继承任何属性和方法
+		//如果想创建一个普通的空对象(像{}或者new Object()创建的对象)，需要传入Object.prototype
+		var obj7=Object.create(Object.prototype);
+
+
+
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="filter-by-example">
+	  <input v-model="name">
+	  <ul>
+	    <li v-for="user in users | filterBy name in 'name'">
+	      {{ user.name }}
+	    </li>
+	  </ul>
+	  <ul>
+	  	<li v-for="list in lists | filterBy name">{{ list }}</li>
+	  </ul>
+	</div>
+	
+	<script src="static/js/vue.js"></script>
+	<script>
+		new Vue({
+		  el: '#filter-by-example',
+		  data: {
+		    name: '',
+		    users: [
+		      { name: 'Bruce' },
+		      { name: 'Chuck' },
+		      { name: 'Jackie' }
+		    ],
+		    lists: ['Bruce', 'Chuck', 'Jackie'],
+		  }
+		})
+	</script>
+</body>
+</html>

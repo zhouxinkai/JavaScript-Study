@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+		var o1={x:1};
+		var o2={x:1};
+		console.log(o1==o2);
+		var o3={x:1};
+		var o4=o3;
+		o4.x=123;
+		console.log(o4.x);
+		console.log(o3.x);
+		
+		function f(o){
+			o.x=55;
+		}
+		f(o3);
+		console.log(o4.x);
+		console.log(o3===o4);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+	
+	
+	</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+var obj={
+	prop:function(){},
+	foo:'king'
+};
+obj.test='this is a test';
+delete obj.prop;
+var o=Object.freeze(obj);
+console.log(obj===o);
+console.log(Object.isFrozen(o));
+o.x=1;
+console.log(o.x);
+console.log(o.foo);
+o.foo='queen';
+console.log(o.foo);
+
+var obj1={
+internal:{}	
+};
+Object.freeze(obj1);
+obj1.internal.x=1;
+console.log(obj1.internal.x);
+
+function deepFreeze(obj){
+	var prop,propKey;
+	Object.freeze(obj);
+	for(propKey in obj){
+		prop=obj[propKey];
+		if(!obj.hasOwnProperty(propKey)||!(typeof prop==='object')||Object.isFrozen(prop)){
+			continue;
+		}
+		deepFreeze(prop);
+	}
+}
+
+var obj2={
+	internal:{}	
+};
+deepFreeze(obj2);
+obj2.internal.x=1;
+console.log(obj2.internal.x);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+	</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<div id="box1" style='background: #ABCDEF; width: 300px;height: 300px;'>
+		<input type="button" value="test1" id='btn1' />
+	</div>
+	<script type="text/javascript">
+		var btn1=document.getElementById("btn1");
+		var box1=document.getElementById("box1");
+		btn1.addEventListener('click',function(e){
+			alert('button clicked');
+			var e=e||window.event;
+			if(typeof e.cancelBubble=='undefined'){
+				e.stopPropagation();
+			}else{
+				e.cancelBubble=true;
+			}
+		},false);
+		box1.addEventListener('click',function(){
+			alert('div clicked');
+		},false);
+		document.body.addEventListener('click',function(){
+			alert('body clicked');
+		},false);
+		document.documentElement.addEventListener('click',function(){
+			alert('html clicked');
+		},false);
+		document.addEventListener('click',function(){
+			alert('document clicked');
+		},false);
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	</script>
+	</body>
+</html>

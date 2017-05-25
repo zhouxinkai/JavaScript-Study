@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	<script type="text/javascript">
+	//其它类型转换成布尔类型false的有
+		var test=Boolean(0);
+		test=Boolean(-0);
+		test=Boolean(NaN);
+		test=Boolean(undefined);
+		test=Boolean('');
+		test=Boolean(0.0);
+		test=Boolean('0');
+		//其它类型转换成字符串型
+		test=String(1234);
+		test=String(23.34);
+		test=String('this is a test');
+		test=String(true);
+		test=String(false);
+		test=String(null);
+		test=String(undefined);
+		test=String(NaN);
+		//其它类型转换成数值型
+		test=Number(12);
+		test=Number(232.3);
+		test=Number(true);
+		test=Number(false);
+		test=Number(undefined);
+		test=Number(NaN);
+		test=Number(null);
+		test=Number('3king');
+		test=Number('324');
+		//通过parseInt()进行转换成整型
+		test=parseInt('123');
+		test=parseInt('234',0);
+		test=parseInt('0xabcdef');
+		test=parseInt('012344');
+		test=parseInt(45,16);
+		test=parseInt('3ki23ng');
+		test=parseInt('true');
+		test=parseInt(true);
+		test=parseInt('  35  6 a ');
+		//通过parseFloat()转换成浮点型
+		test=parseFloat('123.34abc');
+		test=parseFloat('123');
+		test=parseFloat('sdf');
+		test=parseFloat(' 2e3a');
+		alert(test);
+	</script>
+	</head>
+	<body>
+	<h1>强制转换的例子</h1>
+	
+	</body>
+</html>
+

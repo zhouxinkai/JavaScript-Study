@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+//检测一个对象是否是另一个对象的原型(或处于原型链中)，可以通过isPrototypeOf()方法	
+var p={x:1};
+var o=Object.create(p);
+// alert(p.isPrototypeOf(o));
+// alert(Object.prototype.isPrototypeOf(o));
+//类属性class
+function classof(o){
+	if(o===null) return "Null";
+	if(o===undefined) return "undefined";
+	return Object.prototype.toString.call(o).slice(8,-1);
+}
+var x=null;
+x=undefined;
+x=132;
+x='king';
+x=false;
+x={};
+x=[];
+x=/test/;
+x=new Date();
+x=window;
+x=function(){};
+function f(){};
+x=new f();
+// alert(classof(x));
+
+//对象的可扩展性
+
+</script>
+	
+</body>
+</html>

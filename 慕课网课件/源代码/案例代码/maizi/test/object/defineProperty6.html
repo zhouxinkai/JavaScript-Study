@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//Object.defineProperty(obj,'key',{
+//	__proto__:null,//没有继承的属性
+//	value:'static'
+//});
+//
+////alert(obj.key);
+////for(p in obj){
+////	alert(p);
+////}
+////keys=obj.keys;
+////alert(keys);
+//Object.defineProperty(obj,'key1',{
+//	enumerable:false,
+//	configurable:false,
+//	writable:false,
+//	value:'king'
+//});
+//alert(obj.key1);
+var o={};//创建一个对象
+Object.defineProperty(o,'a',{
+	value:12,
+	writable:true,
+	enumerable:true,
+	configurable:true
+});
+//alert(o.a);
+//o.a=345;
+//alert(o.a);
+////for(var p in o){
+////	alert(p);
+////}
+//delete o.a;
+//alert(o.a);
+var bValue;
+Object.defineProperty(o,'b',{
+	get : function(){return bValue;},
+	set : function(newValue){bValue=newValue;},
+	enumerable:true,
+	configurable:true
+});
+//alert(o.b);
+//o.b=389;
+//alert(o.b);
+//Writable特性
+var o = {}; // 创建一个新对象
+
+Object.defineProperty(o, "a", { value : 37,
+                                writable : false });
+console.log(o.a); // 打印 37
+o.a = 25; // 没有错误抛出（在严格模式下会抛出，即使之前已经有相同的值）
+console.log(o.a); // 打印 37， 赋值不起作用。
+
+//Enumerable特性
+var o = {};
+Object.defineProperty(o, "a", { value : 1, enumerable:true });
+Object.defineProperty(o, "b", { value : 2, enumerable:false });
+Object.defineProperty(o, "c", { value : 3 }); // enumerable defaults to false
+o.d = 4; // 如果使用直接赋值的方式创建对象的属性，则这个属性的enumerable为true
+
+for (var i in o) {    
+  console.log(i);  
+}
+// 打印 'a' 和 'd' (in undefined order)
+
+Object.keys(o); // ["a", "d"]
+o.propertyIsEnumerable('a'); // true
+o.propertyIsEnumerable('b'); // false
+o.propertyIsEnumerable('c'); // false
+
+//Configurable 特性
+//configurable 特性表示对象的属性是否可以被删除，以及除 writable 特性外的其他特性是否可以被修改。
+var o = {};
+Object.defineProperty(o, "a", { 
+	get : function(){return 1;},
+   	configurable : false 
+} );
+
+//Object.defineProperty(o, "a", {configurable : true}); // throws a TypeError
+//Object.defineProperty(o, "a", {enumerable : true}); // throws a TypeError
+//Object.defineProperty(o, "a", {set : function(){}}); // throws a TypeError (set was undefined previously)
+//Object.defineProperty(o, "a", {get : function(){return 1;}}); // throws a TypeError (even though the new get does exactly the same thing)
+//Object.defineProperty(o, "a", {value : 12}); // throws a TypeError
+console.log(o.a); // logs 1
+delete o.a; // Nothing happens
+console.log(o.a); // logs 1
+
+//如果 o.a 的 configurable 特性已经为 true，没有错误会被抛出，并且属性会在最后被删除。
+
+//考虑特性被赋予的默认特性值非常重要，通常，
+//使用点运算符和Object.defineProperty()为对象的属性赋值时，数据描述符中的属性默认值是不同的
+var o = {};
+
+o.a = 1;
+// 等同于 :
+Object.defineProperty(o, "a", {value : 1,
+                               writable : true,
+                               configurable : true,
+                               enumerable : true});
+
+
+// 另一方面，
+Object.defineProperty(o, "a", {value : 1});
+// 等同于 :
+Object.defineProperty(o, "a", {value : 1,
+                               writable : false,
+                               configurable : false,
+                               enumerable : false});
+
+	
+		</script>
+	</body>
+</html>

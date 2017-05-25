@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+	<script type="text/javascript">
+	//内部私有函数
+//	function a(param){
+//		function b(param1){
+//			return param1+10;
+//		};
+//		return '在a函数体内调用b函数的结果为：'+b(param);
+//	}
+//	document.write(a(5));
+//	document.write(b(1));
+//	function a(param){
+//		var b=function(param1){
+//			return param1+10;	
+//		};
+//		return '在a函数体内调用b的结果'+b(param);
+//	}
+//	document.write(a(5));
+
+//返回函数的函数
+//function a(){
+//	alert('aaa');
+//	return function(){
+//		alert('bbb');
+//	};
+//}
+////var func=a();
+////func();
+//a()();
+
+//重写自己的函数
+//function a(){
+//	alert('aaa');
+//	a=function(){
+//		alert('bbbb');
+//	};
+//}
+//a();
+//a();
+var a=function(){
+	function setUp(){
+		var setup='doSomeThing';
+	}
+	function doWhat(){
+		alert('要执行的操作');
+	}
+	setUp();
+	return doWhat;
+}();
+a();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	</script>
+	</body>
+</html>

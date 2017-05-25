@@ -1,0 +1,29 @@
+<div class="order-list">
+  <loading v-if="isLoadingShow"></loading>
+  <div class="scroller" v-show="!isLoadingShow">
+    <div v-if="orderList.length">
+      <div class="drag-refresh-text">{{ dragRefreshText }}</div>
+      <ul>
+        <li v-for="order in orderList" @click="openOrderDetail(order)">
+          <div>
+            <span class="poi-name">{{ shopInfo.poiName }}</span>
+            <span class="order-status" :class="{ red: isOrderCancel(order) }">{{ order.orderBase.status | orderStatusFilter }}</span>
+          </div>
+          <div>
+            用餐时间：<span>{{ order.orderBase.createdTime | formatDate }}</span>
+          </div>
+          <div>
+            <span class="seq" v-show="isShowSeq(order)">流水号：<span>{{ order.orderBase.seq }}</span></span>
+            <span class="count">菜品：<span>{{ order.dishCount }}</span></span>
+            <span class="total-price">总计：<span>￥{{ order.orderBase.amount | priceText }}</span></span>
+          </div>
+          <span class="icon-arrow"></span>
+        </li>
+      </ul>
+      <div class="scroll-refresh-text">{{ scrollRefreshText }}</div>
+    </div>
+    <div class="none" v-else>
+      没有相关订单
+    </div>
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function object(o){
+				function F(){};
+				F.prototype=o;
+				return new F();
+			}
+			//如果想访问uber属性
+			function object(o){
+				function F(){};
+				F.prototype=o;
+				var n=new F();
+				n.uber=o;
+				return n;
+			}
+			
+			var Shape={
+				name:'shape',
+				toString: function(){
+					return this.name;
+				}
+			};
+			var TwoDShape=object(Shape);
+			TwoDShape.name='2D Shape';
+			TwoDShape.toString=function(){
+				return this.uber.toString()+'--'+this.name;
+			}
+			var Triangle=object(TwoDShape);
+			Triangle.name='triangle';
+			Triangle.getArea=function(){
+				return this.side*this.height/2;
+			}
+			console.log(Triangle.toString());
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+	var obj = {
+    prop: function () {},
+    foo: "bar"
+  };
+
+// 可以添加新的属性,已有属性的值可以修改,可以删除
+obj.foo = "baz";
+obj.lumpy = "woof";
+delete obj.prop;
+
+var o = Object.seal(obj);
+
+alert(o === obj);
+alert(Object.isSealed(obj) === true);
+
+// 仍然可以修改密封对象上的属性的值.
+obj.foo = "quux";
+alert(obj.foo);
+// 但你不能把一个数据属性重定义成访问器属性.
+//Object.defineProperty(obj, "foo", { get: function() { return "g"; } }); // 抛出TypeError异常
+
+// 现在,任何属性值以外的修改操作都会失败.
+obj.quaxxor = "the friendly duck"; // 静默失败,新属性没有成功添加
+delete obj.foo; // 静默失败,属性没有删除成功
+
+// ...在严格模式中,会抛出TypeError异常
+function fail() {
+  "use strict";
+//delete obj.foo; // 抛出TypeError异常
+//obj.sparky = "arf"; // 抛出TypeError异常
+}
+fail();
+
+// 使用Object.defineProperty方法同样会抛出异常
+//Object.defineProperty(obj, "ohai", { value: 17 }); // 抛出TypeError异常
+//Object.defineProperty(obj, "foo", { value: "eit" }); // 抛出TypeError异常
+</script>	
+	</body>
+</html>

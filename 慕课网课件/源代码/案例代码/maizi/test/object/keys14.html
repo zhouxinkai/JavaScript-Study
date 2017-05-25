@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+
+	<body>
+		<script type="text/javascript">
+			var arr = ["a", "b", "c"];
+			alert(Object.keys(arr)); // 弹出"0,1,2"
+			
+			// 类数组对象
+			var obj = {
+				0: "a",
+				1: "b",
+				2: "c"
+			};
+			alert(Object.keys(obj)); // 弹出"0,1,2"
+			
+			// getFoo是个不可枚举的属性
+			var my_obj = Object.create({}, {
+				getFoo: {
+					value: function() {
+						return this.foo
+					}
+				}
+			});
+			my_obj.foo = 1;
+			
+			alert(Object.keys(my_obj)); // 只弹出foo		
+		</script>
+	</body>
+
+</html>

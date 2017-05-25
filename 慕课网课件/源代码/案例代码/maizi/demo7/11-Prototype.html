@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			function foo(a,b){
+				return a*b;
+			}
+			console.log(foo.length);
+			console.log(foo.constructor);
+			console.log(foo.prototype);
+			foo.prototype={};
+			
+			function Product(name,color){
+				this.name=name;
+				this.color=color;
+				this.whatAreYou=function(){
+					return 'this is a '+this.color+' '+this.name;	
+				};
+			}
+//			Product.prototye.price=200;
+//			Product.prototye.rating=3;
+//			Product.prototye.getInfo=function(){
+//				return "等级："+this.rating+"--价钱："+this.price;
+//			}
+			Product.prototype={
+				price:6888,
+				memory:64,
+				getInfo: function(){
+					return "内存："+this.memory+"--价钱："+this.price;
+				}
+			};
+			var p1=new Product('iphone6','玫瑰金');
+			console.log(p1.name);
+			console.log(p1.color);
+			console.log(p1.whatAreYou());
+			console.log(p1.price);
+			console.log(p1.memory);
+			console.log(p1.getInfo());
+			Product.prototype.get=function(what){
+				return this[what];
+			}
+			console.log(p1.get('price'));
+			console.log(p1.get('name'));
+			Product.prototype.getInfo=function(){
+				return 'memory：'+Product.prototype.memory;
+			}
+			var p2=new Product('MacBookPro','土豪金');
+			Product.prototype.price=14888;
+			Product.prototype.memory=256;
+			console.log(p2.getInfo());
+			console.log(p2.memory);
+			console.log(p2.toString());
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

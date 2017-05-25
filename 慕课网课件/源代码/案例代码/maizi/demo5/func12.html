@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//通过闭包突破全局作用域链
+			function f(){
+				var a='king';
+				return function(){
+					return a;
+				}
+			}
+//			alert(a);
+			var test=f();
+			alert(test());
+
+
+
+		</script>
+	</body>
+</html>

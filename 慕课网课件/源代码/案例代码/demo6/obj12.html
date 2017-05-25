@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+	var obj={};
+	//检测对象是否可扩展
+	console.log(Object.isExtensible(obj));
+	var d=new Date();
+	console.log(Object.isExtensible(d));
+	obj.x=1;
+	console.log(obj.x);
+	//通过preventExtensions()将对象变为不可扩展的
+	obj1=Object.preventExtensions(obj);
+	console.log(obj===obj1);
+	console.log(Object.isExtensible(obj1));
+	obj1.y=2;
+	console.log(obj1.y);
+	Object.defineProperty(obj1,'z',{value:1});
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</script>
+	</body>
+</html>

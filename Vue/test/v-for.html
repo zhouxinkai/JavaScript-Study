@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="demo">
+		<div v-for="arr in arrs">
+			<!-- 重复的是自身 -->
+			<span>{{ arr }}</span>
+		</div>
+	</div>
+	
+	<script src="static/js/vue.js"></script>
+	<script>
+		var data = {
+		    arrs: ['test1', 'test2', 'test3'],
+		}
+		var vm = new Vue({
+		    el: '#demo',
+		    data: data
+		})
+	</script>
+</body>
+</html>

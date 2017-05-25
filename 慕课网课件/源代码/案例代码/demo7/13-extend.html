@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			String.prototype.reverse=function(){
+				return Array.prototype.reverse.apply(this.split('')).join('');
+			}
+			console.log('maizi'.reverse());
+			console.log('king'.reverse());
+			
+			//检测方法是否存在，不存在则扩展
+			if(!Array.prototype.inArray){
+				Array.prototype.inArray=function(needle){
+					for(var i=0,len=this.length;i<len;i++){
+						if(this[i]==needle){
+							return true;
+						}
+					}
+					return false;
+				}
+			}
+			var arr=['a','b','c','d'];
+			console.log(arr.inArray('b'));
+			console.log(arr.inArray("C"));
+			
+			function Person(){
+				this.mouth=true;
+			}
+			var p1=new Person();
+			var p2=new Person();
+			Person.prototype.say=function(){
+				return 'hello';
+			}
+			console.log(p1.say());
+			console.log(p2.say());
+			console.log(p1.constructor);
+			console.log(p1.constructor.prototype.constructor);
+			console.log(p1.constructor.prototype.mouth);
+			Person.prototype={
+				hair:true,
+				face:true
+			};
+			console.log(typeof p1.hair);
+			console.log(p1.say());
+			console.log(typeof p1.__proto__.say);
+			console.log(typeof p1.__proto__.hair);
+			var p3=new Person();
+			console.log(typeof p3.__proto__.say);
+			console.log(typeof p3.__proto__.hair);
+			console.log(typeof p3.__proto__.face);
+			console.log(p3.constructor);
+			console.log(p1.constructor);
+			console.log(typeof p3.constructor.prototype.hair);
+			console.log(typeof p1.constructor.prototype.hair);
+			
+			Person.prototype={
+				'hair':true,
+				face:true
+			};
+			Person.prototype.constructor=Person;
+			var p4=new Person();
+			console.log(p4.constructor);
+			console.log(typeof p4.constructor.prototype.hair);
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

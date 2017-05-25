@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+	// 新建的对象默认不是密封的.
+var empty = {};
+alert(Object.isSealed(empty) === false);
+
+// 如果你把一个空对象变的不可扩展,则它同时也会变成个密封对象.
+Object.preventExtensions(empty);
+alert(Object.isSealed(empty) === true);
+
+// 但如果这个对象不是空对象,则它不会变成密封对象,因为密封对象的所有自身属性必须是不可配置的.
+var hasProp = { fee: "fie foe fum" };
+Object.preventExtensions(hasProp);
+alert(Object.isSealed(hasProp) === false);
+
+// 如果把这个属性变的不可配置,则这个对象也就成了密封对象.
+Object.defineProperty(hasProp, "fee", { configurable: false });
+alert(Object.isSealed(hasProp) === true);
+
+// 最简单的方法来生成一个密封对象,当然是使用Object.seal.
+var sealed = {};
+Object.seal(sealed);
+alert(Object.isSealed(sealed) === true);
+
+// 一个密封对象同时也是不可扩展的.
+alert(Object.isExtensible(sealed) === false);
+
+// 一个密封对象也可以是一个冻结对象,但不是必须的.
+alert(Object.isFrozen(sealed) === true); // 所有的属性都是不可写
+var s2 = Object.seal({ p: 3 });
+alert(Object.isFrozen(s2) === false); // 属性"p"可写
+
+var s3 = Object.seal({ get p() { return 0; } });
+alert(Object.isFrozen(s3) === true); // 访问器属性不考虑可写不可写,只考虑是否可配置
+</script>
+	</body>
+</html>

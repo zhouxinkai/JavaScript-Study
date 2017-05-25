@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//条件语句
+			if(3>11)
+				document.write('hello ');
+			document.write('world');
+			document.write('<hr color="red"/>');
+			if(false){
+				document.write('hello ');
+				document.write('King');
+				var x=1,y=2,username='king';
+			}
+			document.write(x+'--'+y+'--'+username);
+			//if ... else
+			document.write('<hr color="darkred"/>');
+			var username='king1';
+			if(username=='king'){
+				document.write('hello king');
+			}else{
+				document.write('hello maizi');
+			}
+			document.write('<hr color="red"/>');
+			//if esle if
+			username='admin';
+			if(username=='king'){
+				document.write('hello king');
+			}else if(username=='maizi'){
+				document.write('hello maizi');
+			}else if(username=='admin'){
+				document.write('hello admin');
+			}
+			document.write('<hr color="red"/>');
+			if(true==false){
+				document.write('a');
+			}else if(3>11){
+				document.write('b');
+			}
+			document.write('<hr color="red"/>');
+			var x=11;
+			if(x==1){
+				document.write('aaa');
+			}else if(x==2){
+				document.write('bbb');
+			}else if(x==3){
+				document.write('ccc');
+			}else{
+				document.write('以上表达式都为false执行的代码段');
+			}
+			document.write('<hr color="aqua"/>');
+			//switch...case语句
+			/*
+			 switch(exp){
+			 	case 值1:
+			 		执行的代码段;
+			 		break;
+			 	case 值2:
+			 		执行的代码段;
+			 		break;
+			 	...
+			 	default:
+			 		执行的代码段;
+			 		break;
+			 	严格类型比较
+			 }
+			 */
+			var i=1;
+			var i=true;
+			switch(i){
+				case '1':
+					document.write('king');
+					break;
+				case 1:
+					document.write('aa');
+					break;
+				case 2:
+					document.write('bb');
+					break;
+				default:
+					document.write('以上case都没有匹配到的时候执行的代码段');
+					break;
+				case 3:
+					document.write('cc');
+					break;
+				case 4:
+					document.write('dd');
+					break;
+					
+			}
+			document.write('<br/>continue...');
+			document.write('<hr color="red"/>');
+			i=14;
+			switch(i){
+				case 1:
+					document.write('a');
+				case 2:
+					document.write('b');
+				default:
+					document.write('e');
+				case 3:
+					document.write('c');
+					break;
+				case 4:
+					document.write('d');
+			}
+			document.write('<hr color="red"/>');
+			var i=66;
+			switch(i){
+				case 1:
+				case 2:
+				case 3:
+					document.write('hello king');
+					break;
+				case 4:
+				case 5:
+				case 6:
+					document.write('hello maizi');
+					break;
+				default:
+					document.write('hello everybody');
+					break;
+			}
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

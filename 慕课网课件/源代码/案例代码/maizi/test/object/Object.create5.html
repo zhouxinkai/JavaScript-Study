@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+var o;
+o=Object.create(null);//创建了一个原型为null的空对象
+
+o={};
+o=Object.create(Object.prototype);
+
+o=Object.create(Object.prototype,{
+	name:{
+		writable:true,
+		configurable:true,
+		value:'king'
+	},
+	secert:{
+		configurable:false,
+		get: function(){return 'this is a secret'},
+		set: function(value){document.write("Setting secert is"+value)}
+	}
+});
+//alert(o.name);
+//o.name='queen';
+//alert(o.name);
+//alert(o.secert);
+//o.secert='aaa';
+//alert(o.secert);
+//var obj={};
+
+	
+	
+	
+	
+	
+	
+</script>
+
+	</body>
+</html>
+

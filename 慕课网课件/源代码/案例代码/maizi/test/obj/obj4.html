@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	//通过in检测对象的自有属性或继承属性中是否包含某个属性
+	var o={x:1};
+	// alert('x' in o);
+	// alert('toString' in o);//o继承toString属性
+
+	//对象的hasOwnProperty()方法用来检测给定的名字是否是对象的自有属性
+	var o={x:1};
+	// alert(o.hasOwnProperty('x'));
+	// alert(o.hasOwnProperty('toString'));
+	//propertyIsEnumerable()是hasOwnProperty()的增强版，只有检测到是自有属性且这个属性的可枚举性为true时它才返回true。某些内置属性是不可枚举的；一般通过JavaScript代码纯关键的属性都是可枚举的，除非在ECMAScript 5中使用一个特殊的方法来改变属性的可枚举性
+	function Foo(){};
+	Foo.prototype.z=1;
+	var obj=new Foo();
+	obj.x=1;
+	obj.y=2;
+	// alert('x' in obj);
+	// alert('z' in obj);
+	// alert(obj.hasOwnProperty('x'));
+	// alert(obj.hasOwnProperty('z'));
+	// alert(obj.propertyIsEnumerable('x'));
+	// alert(obj.propertyIsEnumerable('z'));//继承来的
+	// alert(Object.prototype.propertyIsEnumerable('toString'));//不可枚举
+
+	//可以判断某个属性是否是undefiend,但是如果属性存在且值为undefined，此时就不可以了
+	var o={x:1};
+	// alert(o.x===undefined);
+	// alert(o.y===undefined);
+	// alert(o.toString===undefined);
+
+	//枚举属性
+	//通过for/in遍历对象中所有可枚举的属性(包含自有属性和继承的属性)
+	var obj={x:1,y:2,z:3};
+	// for(p in obj){
+	// 	alert(p);
+	// }
+	//返回所有自有属性的名称
+	// alert(Object.getOwnPropertyNames(obj));
+
+
+
+	//通过字面量定义存取器属性
+	/*var o={
+		//普通的数据属性
+		data_prop:value,
+		//存取器属性都是成对定义的函数
+		get accessor_prop(){},
+		set accessor_prop(value){}
+	};
+	*/
+	var p={
+		//x，y是普通的可读写的数据属性
+		x:1.0,
+		y:1.0,
+		//r是可读写的存取器属性，它有geter和setter
+		get r(){return Math.sqrt(this.x*this.x+this.y*this.y);},
+		set r(newvalue){
+			var oldvalue=Math.sqrt(this.x*this.x+this.y*this.y);
+			var ratio=newvalue/oldvalue;
+			this.x*=ratio;
+			this.y*=ratio;
+		},
+		get theta(){return Math.atan2(this.y,this.x);}
+	};
+	Object.getOwnPropertyDescriptor(p,'r');
+	// p.x=5;
+	// p.y=10;
+	// alert(p.theta);
+	var random={
+		get octet(){return Math.floor(Math.random()*256);}
+	};
+	Object.getOwnPropertyDescriptor(random,'octet');
+	// alert(random.octet);
+
+	// alert(Object.getOwnPropertyDescriptor({x:1},'x'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+	
+</body>
+</html>

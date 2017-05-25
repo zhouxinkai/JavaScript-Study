@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	//属性操作
+	var person={
+		username:'king',
+		age:12,
+		addr:'北京',
+		sex:'男'
+
+	};
+	// alert(person.username+'\n'+person['age']+'\n'+person['addr']+'\n'+person.sex);
+	person.age=23;
+	person['test']='this is a test';
+	delete person.username;
+	// alert(person.username);
+	// for(var attr in person){
+	// 	alert(attr);
+	// }
+	//有些时候只能使用[]来访问
+	//如果属性名是不确定的，就必须使用[]，它允许我们在程序运行期间通过变量实现相关属性的动态存取
+	var key='age';
+	alert(person[key]);
+</script>
+	
+</body>
+</html>

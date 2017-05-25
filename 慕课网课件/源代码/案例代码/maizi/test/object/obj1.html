@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+			//通过new Object()创建对象
+			var obj=new Object();
+//			obj.name='king';
+//			var username=obj.name;
+////			alert(username);
+////			alert(typeof(obj));
+////通过对象字面量创建对象
+//			var obj1={};
+//			obj1['name']='queen';
+//			var username1=obj1['name'];
+//			alert(username+'--'+username1);
+//			alert(typeof(obj1));
+//			obj.break='aaa';
+//			var test=obj.break;
+//			alert(test);
+//			obj['for']='this is for';
+//			alert(obj['for']);
+//			alert(obj);
+//			document.write(obj);
+			var person={
+			username:'king',
+			age:12,
+			sex:'男',
+			salary:12345.678,
+			married:true,
+			details:{
+				addr:'北京',
+				company:'程序员'
+			},
+			say:function(){
+				alert(this.salary);
+				alert(person.username);
+				alert('this is king show time');
+			}
+				
+			};
+//			alert(person.username);
+////			delete person.username;
+//			delete person['username'];
+//			alert(person.username);
+//			alert(person.details.addr);
+//			person.say();
+//			alert(person['username']);
+//			alert(person['details']['company']);
+			person.say();
+			delete person.say;
+			person.say();
+
+
+
+
+
+
+
+
+
+
+
+
+
+		</script>
+	</body>
+</html>

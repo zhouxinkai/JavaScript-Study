@@ -1,0 +1,118 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>黑桃9和梅花4</title>
+    <style type="text/css">
+    /*扑克牌设置
+     *扑克牌大小设为宽120，高170
+     *其中小图标设为宽20，高30，彼此之间相距10px
+     *基本思路就是采用绝对定位，如果使用图片的话，可以用CSS Sprites
+     */
+    .card {
+        width: 120px;
+        height: 170px;
+        position: absolute;
+        overflow: hidden;
+        border: 1px #c0c0c0 solid;
+    }
+    
+    /*扑克牌小图标设置*/
+    span {
+        display: block;
+        width: 20px;
+        height: 30px;
+        line-height: 30px;
+        position: absolute;
+        font-size: 26px;
+    }
+
+    /*各坐标点位置*/
+    .row1{
+    	top: 10px;
+    }
+    .row2{
+    	top: 50px;
+    }
+    .row3{
+    	top: 90px;
+    }
+    .row4{
+    	top: 130px;
+    }
+    .column1{
+    	left: 18px;
+    	/*left:clac(20px-2px)*/
+    }
+    .column2{
+    	left: 50px;
+    }
+    .column3{
+    	left:78px;
+    	/*left:clac(80px-2px)*/
+    }
+    
+    .reverse {
+		transform: rotate(180deg);
+		-webkit-transform: rotate(180deg);
+		-moz-transform: rotate(180deg);
+		-ms-transform: rotate(180deg);
+		-o-transform: rotate(180deg);
+        filter:progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+        /*IE中CSS-filter属性，rotation为2代表旋转180°*/
+        *height: 1px;
+        /*IE6 hack*/
+    }
+    
+    .begin {
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        width: 15px;
+        height: 36px;
+        position: absolute;
+        left: 5px;
+        top: 0px;
+    }
+    
+    .end {
+        font-size: 15px;
+        font-weight: bold;
+        text-align: center;
+        width: 15px;
+        height: 36px;
+        position: absolute;
+        right: 5px;
+        bottom: 0px;
+    }
+    
+    </style>
+</head>
+
+<body>
+    <div class="card" style="left:10px;top:20px;">
+        <strong class="begin">9<br />&spades;</strong>
+        <span class="column1 row1">&spades;</span>
+        <span class="column1 row2">&spades;</span>
+        <span class="column1 row3 reverse">&spades;</span>
+        <span class="column1 row4 reverse">&spades;</span>
+        <span class="column2 row2" style="top:70px;">&spades;</span>
+        <span class="column3 row1">&spades;</span>
+        <span class="column3 row2">&spades;</span>
+        <span class="column3 row3 reverse">&spades;</span>
+        <span class="column3 row4 reverse">&spades;</span>
+        <strong class="end reverse">9<br />&spades;</strong>
+    </div>
+
+    <div class="card" style="left:200px;top:20px;">
+        <strong class="begin">4<br />&clubs;</strong>
+        <span class="column1 row1">&clubs;</span>
+        <span class="column1 row4 reverse">&clubs;</span>
+        <span class="column3 row1">&clubs;</span>
+        <span class="column3 row4 reverse">&clubs;</span>
+        <strong class="end reverse">4<br />&clubs;</strong>
+    </div>
+</body>
+
+</html>

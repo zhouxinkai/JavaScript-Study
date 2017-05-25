@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script type="text/javascript">
+//			function Shape(){
+//				this.name='shape';
+//			}
+			function Shape(){};
+			Shape.prototype.name='shape';
+			Shape.prototype.toString=function(){
+				return this.name;
+			}
+			
+			function TwoDShape(){};
+			TwoDShape.prototype=new Shape();
+			TwoDShape.prototype.constructor=TwoDShape;
+			TwoDShape.prototype.name='2D Shape';
+			
+			function Triangle(side,height){
+				this.side=side;
+				this.height=height;
+			}
+			Triangle.prototype=new TwoDShape();
+			Triangle.prototype.constructor=Triangle;
+			Triangle.prototype.name='triangle';
+			Triangle.prototype.getArea=function(){
+				return this.side*this.height/2;
+			}
+			
+			var myTriangle=new Triangle(5,10);
+			console.log(myTriangle.getArea());
+			console.log(myTriangle.toString());
+			console.log(myTriangle.hasOwnProperty('side'));
+			console.log(myTriangle.hasOwnProperty('name'));
+			console.log(myTriangle instanceof Triangle);
+			console.log(myTriangle instanceof TwoDShape);
+			console.log(myTriangle instanceof Shape);
+			console.log(Triangle.prototype.isPrototypeOf(myTriangle));
+			console.log(TwoDShape.prototype.isPrototypeOf(myTriangle));
+			console.log(Shape.prototype.isPrototypeOf(myTriangle));
+			console.log(Object.prototype.isPrototypeOf(myTriangle));
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</script>
+	</body>
+</html>

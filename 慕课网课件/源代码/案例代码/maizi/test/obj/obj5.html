@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+	var o={};
+	Object.defineProperty(o,'x',{
+		value:12,
+		writable:true,
+		enumerable:false,
+		configurable:true
+	});
+	Object.defineProperty(o,'y',{
+		value:'king',
+		writable:true,
+		enumerable:true,
+		configurable:true
+	});
+	Object.defineProperty(o,'z',{
+		value:3
+		// writable:false,
+		// enumerable:false,
+		// configurable:false
+	});
+	// alert(o.x);
+	// alert(Object.keys(o));//x不可枚举，y可枚举
+	// for(var p in o){
+	// 	alert(p);
+	// }
+	Object.defineProperty(o,'x',{writable:false});
+	o.x=5;
+	o.y=34;
+	// alert(o.y);
+	// alert(o.x);
+	Object.defineProperty(o,'x',{value:56});
+	// alert(o.x);
+	// alert(o.z);
+	o.z=56;
+	// Object.defineProperty(o,'z',{value:32});//不可配置
+	// alert(o.z);
+	//将x从数据属性修改为存取器属性
+	Object.defineProperty(o,'x',{
+		get:function(){return 10;}
+	});
+	// alert(o.x);
+	/*
+	传入Object.defineProperty()的属性描述对象不必包含所有4个特性。对于新创建的属性来说，默认的特性值是false或undefined。对于修改的已有属性来说，默认的特性值没有做任何修改。注意这个方法要么修改已有属性要么新建自有属性，但不能修改继承属性。
+	*/
+	//可以通过Object.defineProperties()同时创建或修改多个属性
+
+	var p=Object.defineProperties({},{
+		x:{value:1,writable:true,enumerable:true,configurable:true},
+		y:{value:2,writable:false,enumerable:true,configurable:true},
+		z:{value:3,writable:true,enumerable:false,configurable:true},
+		r:{
+			get: function(){return Math.random();},
+			enumerable:true,
+			configurable:true
+		}
+	});
+	for(var prop in p){
+		alert(prop);
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</body>
+</html>

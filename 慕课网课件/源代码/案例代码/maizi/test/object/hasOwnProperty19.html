@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+	//使用 hasOwnProperty 方法判断某对象是否含有特定的自身属性
+	var o=new Object();
+	o.prop='exits';
+	function changeO(){
+		o.newprop=o.prop;
+		delete o.prop;
+	}
+//	alert(o.hasOwnProperty('prop'));
+//	changeO();
+//	alert(o.hasOwnProperty('prop'));
+//自身属性和继承属性的区别
+//o = new Object();
+//o.prop = 'exists';
+//alert(o.hasOwnProperty('prop'));             // 返回 true
+//alert(o.hasOwnProperty('toString'));         // 返回 false
+//alert(o.hasOwnProperty('hasOwnProperty'));   // 返回 false
+//遍历一个对象的所有自身属性
+//何在遍历一个对象的所有属性时忽略掉继承属性，注意这里 for..in 循环只会遍历可枚举属性，这通常就是我们想要的，
+//直接使用 Object.getOwnPropertyNames() 方法也可以实现类似的需求。
+var buz = {
+    fog: 'stack'
+};
+
+for (var name in buz) {
+    if (buz.hasOwnProperty(name)) {
+        alert("this is fog (" + name + ") for sure. Value: " + buz[name]);
+    }
+    else {
+        alert(name); // toString or something else
+    }
+}
+
+//hasOwnProperty 方法有可能被遮蔽
+
+//如果一个对象拥有自己的 hasOwnProperty 方法, 则原型链上的同名方法会被遮蔽（shadowed）
+var foo = {
+    hasOwnProperty: function() {
+        return false;
+    },
+    bar: 'Here be dragons'
+};
+
+foo.hasOwnProperty('bar'); // 始终返回 false
+
+// 如果担心这种情况，可以直接使用原型链上真正的 hasOwnProperty 方法
+alert(({}).hasOwnProperty.call(foo, 'bar')); // true
+alert(Object.prototype.hasOwnProperty.call(foo, 'bar')); // true
+
+
+
+</script>
+	</body>
+</html>

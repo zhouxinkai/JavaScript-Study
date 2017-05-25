@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+	// Object.preventExtensions将原对象变的不可扩展,并且返回原对象.
+var obj = {};
+var obj2 = Object.preventExtensions(obj);
+alert(obj === obj2);
+ 
+// 字面量方式定义的对象默认是可扩展的.
+var empty = {};
+alert(Object.isExtensible(empty) === true);
+ 
+// ...但可以改变.
+Object.preventExtensions(empty);
+alert(Object.isExtensible(empty) === false);
+ 
+// 使用Object.defineProperty方法为一个不可扩展的对象添加新属性会抛出异常.
+var nonExtensible = { removable: true };
+Object.preventExtensions(nonExtensible);
+//Object.defineProperty(nonExtensible, "new", { value: 8675309 }); // 抛出TypeError异常
+ 
+// 在严格模式中,为一个不可扩展对象的新属性赋值会抛出TypeError异常.
+function fail()
+{
+  "use strict";
+//nonExtensible.newProperty = "FAIL"; // throws a TypeError
+}
+fail();
+ 
+// 一个不可扩展对象的原型是不可更改的,__proto__是个非标准魔法属性,可以更改一个对象的原型.
+var fixed = Object.preventExtensions({});
+fixed.__proto__ = { oh: "hai" }; // 抛出TypeError异常
+</script>
+	</body>
+</html>

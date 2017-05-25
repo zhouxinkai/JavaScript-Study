@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="test" id='btn1' />
+		<script type="text/javascript">
+			var btn1=document.getElementById("btn1");
+			//在IE8之前出现的是相反的顺序，hello king,maizi 
+			btn1.attachEvent('onclick',function(){
+				alert('hello maizi');
+			});
+			var handler=function(){
+				alert('hello king');
+			}
+			btn1.attachEvent('onclick',handler);
+		</script>
+	</body>
+</html>

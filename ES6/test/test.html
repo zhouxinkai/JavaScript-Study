@@ -1,0 +1,25 @@
+<article class="login-form">
+  <logo></logo>
+    <p class="error-tip" v-if="error">
+      <span class="icon-info"></span>
+      {{error.message}}
+    </p>
+    <form @submit="submit($event)">
+      <div class="form-content">
+        <label>
+          <input v-if="defaultAccount" type="text" value="account" disabled placeholder="账号" required/>
+          <input v-else type="text" v-model="account" placeholder="账号" required/>
+        </label>
+        <label>
+          <input type="password" v-model="password" placeholder="密码" required/>
+        </label>
+        <label class="captcha-label" v-if="captchaUrl">
+          <input type="text" name="captcha" v-model="captcha" placeholder="验证码" required/>
+          <img class="captcha" :src="captchaUrl" @click="refreshCaptch()"/>
+          <a @click="refreshCaptcha()">换一换</a>
+        </label>
+      </div>
+      <span class="icon-loading" v-if="pending"></span>
+      <button class="btn" v-else>登录</button>
+    </form>
+</article>

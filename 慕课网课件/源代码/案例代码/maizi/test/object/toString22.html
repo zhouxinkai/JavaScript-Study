@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+<script type="text/javascript">
+//覆盖(遮蔽)默认的toString方法
+//可以自定义个方法来取代默认的 toString() 方法。该 toString() 方法不能传入参数并且必须返回一个字符串。
+//自定义的 toString() 方法可以是任何我们需要的值
+function Dog(name,breed,color,sex) {
+   this.name=name;
+   this.breed=breed;
+   this.color=color;
+   this.sex=sex;
+}
+
+theDog = new Dog("Gabby","Lab","chocolate","female");
+//alert(theDog.toString());
+Dog.prototype.toString = function() {
+  var ret = "Dog " + this.name + " is a " + this.sex + " " + this.color + " " + this.breed;
+  return ret;
+}
+//alert(theDog.toString());
+//使用toString()方法来检测对象类型
+/*
+可以通过toString() 来获取每个对象的类型。
+为了每个对象都能通过 Object.prototype.toString() 来检测，
+需要以 Function.prototype.call()
+或者 Function.prototype.apply() 的形式来调用，把需要检测的对象作为第一个参数传入。
+ */
+var toString = Object.prototype.toString;
+
+alert(toString.call(new Date)); // [object Date]
+alert(toString.call(new String)); // [object String]
+alert(toString.call(Math)); // [object Math]
+
+//Since JavaScript 1.8.5
+alert(toString.call(undefined)); // [object Undefined]
+alert(toString.call(null)); // [object Null]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+	</body>
+</html>

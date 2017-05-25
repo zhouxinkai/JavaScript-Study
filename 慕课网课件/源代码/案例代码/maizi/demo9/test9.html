@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" value="test" id='btn1' />
+		<br />
+		<a href="http://www.phpfamily.org" id='myBlob'>我的个人博客</a>
+		<script type="text/javascript">
+			var btn1=document.getElementById("btn1");
+			var handler=function(e){
+				switch(e.type){
+					case 'click':
+						alert('cliked!!');
+						break;
+					case 'mouseover':
+						event.target.style.backgroundColor='red';
+						break;
+					case 'mouseout':
+						event.target.style.backgroundColor='';
+						break;
+				}
+			};
+			btn1.onclick=handler;
+			btn1.onmouseover=handler;
+			btn1.onmouseout=handler;
+			var myBlob=document.getElementById("myBlob");
+			myBlob.onclick=function(e){
+				alert(e.cancelable);
+				e.preventDefault();//取消默认行为
+			}
+		</script>
+	</body>
+</html>

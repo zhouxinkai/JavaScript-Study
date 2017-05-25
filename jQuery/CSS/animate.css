@@ -1,0 +1,39 @@
+.v_show
+{
+    border: 1px solid red;
+}
+.cartoon
+{
+    display: inline-block;
+}
+.highlight_tip
+{
+    display: inline-block;
+}
+.change_btn
+{
+    display: inline-block;
+}
+.v_content
+{
+    width: 580px;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    height: 200px;
+    white-space: nowrap;
+}
+.v_content_list
+{
+    padding-left: 0;
+    position: absolute;
+}
+.v_content_list li
+{
+    display: inline-block;
+    border: 1px solid red;
+}
+.current
+{
+    color: red;
+}
